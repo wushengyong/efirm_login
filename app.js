@@ -44,3 +44,10 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+// 直接启用app.js，开启服务器
+if (module.parent){
+  var config = require('config');
+  app.listen(config.port,config.hostname);
+}
