@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= welcome_message %></h1>
+<% form_tag('/login',{multipart:false}) %>
+<% end_form_tag() %>
+</body>
+</html>

@@ -1,0 +1,2 @@
+1.如何在webstorm中开启debug模式
+  在configurations=>Environment Variables中加入DEBUG=efirm-login:server

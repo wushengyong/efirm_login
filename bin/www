@@ -3,8 +3,6 @@
 /**
  * Module dependencies.
  */
-require('debug').enable('efirm-login:server');
-
 var app = require('../app');
 var debug = require('debug')('efirm-login:server');
 var http = require('http');
