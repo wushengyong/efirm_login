@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form ng-app="loginform" name='loginform' ng-controller="loginctrl" novalidate id="login_form">
+<form ng-app="loginform" name='loginform' ng-controller="loginctrl" novalidate id="login_form" action="/login" method="post">
     <h1><%= welcome_message %></h1>
     <table>
         <% for (var field in fields) { %>
