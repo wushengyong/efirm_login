@@ -3,10 +3,43 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascript/angular.js"></script>
 </head>
 <body>
-<h1><%= welcome_message %></h1>
-<% form_tag('/login',{multipart:false}) %>
-<% end_form_tag() %>
+
+<form ng-app="loginform" name='loginform' ng-controller="loginctrl" novalidate id="login_form">
+    <h1><%= welcome_message %></h1>
+    <table>
+        <% for (var field in fields) { %>
+            <tr>
+                <td>
+                    <%= fields[field].name %>
+                </td>
+                <td>
+                    <input type="<%= fields[field].type%>" ng-model="<%=fields[field].name%>" name="<%=fields[field].name%>"
+                           required placeholder="<%=fields[field].placeholder%>"/>
+                </td>
+                <td ng-show="loginform.<%=fields[field].name%>.$dirty && loginform.<%=fields[field].name%>.$invalid">
+                    <p style="color:red"><%=fields[field].name%> is required.</p>
+                </td>
+            </tr>
+        <% } %>
+        <% if (fields.length > 0) { %>
+        <tr>
+            <td />
+            <td><input type="submit" value="Sumbit" id="submit"/></td>
+        </tr>
+        <% } %>
+    </table>
+
+</form>
+<script>
+    var app = angular.module('loginform',[]);
+    app.controller('loginctrl',function ($scope){
+        <% for (var key in default_value) { %>
+            $scope.<%=default_value[key].name%> = '<%=default_value[key].value%>';
+        <% } %>
+    });
+</script>
 </body>
 </html>
