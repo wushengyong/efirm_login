@@ -3,10 +3,26 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascript/angular.js" />
 </head>
 <body>
 <h1><%= welcome_message %></h1>
-<% form_tag('/login',{multipart:false}) %>
-<% end_form_tag() %>
+<form action="/login" method="post" name="loginform"
+      ng-app="loginapp" ng-controller="loginctrl" novalidate>
+    <table>
+        <%  for (var field in fields){ %>
+            <tr>
+            </tr>
+        <% } %>
+    </table>
+</form>
+<script>
+    var loginapp = angular.module('loginapp',[]);
+    loginapp.controller('loginctrl',function ($scope){
+        <% for(var key in defaultvalues) { %>
+            $scope.<%key.item%> = <%key.value%>
+        <% }%>
+    });
+</script>
 </body>
 </html>

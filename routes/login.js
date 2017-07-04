@@ -6,7 +6,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Login', welcome_message : 'Login'});
+
+    res.render('login', context);
 });
 
 module.exports = router;
