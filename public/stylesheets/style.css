@@ -7,6 +7,16 @@ a {
   color: #00B7FF;
 }
 #login_form {
-  margin : 10px 300px;
+  margin : 10% 40%;
   line-height: 40px;
+}
+#login_form table{
+  line-height: 40px;
+}
+#login_form td {
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.error_msg{
+  color: #F00;
 }

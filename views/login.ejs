@@ -7,38 +7,32 @@
 </head>
 <body>
 
-<form ng-app="loginform" name='loginform' ng-controller="loginctrl" novalidate id="login_form" action="/login" method="post">
-    <h1><%= welcome_message %></h1>
+<form ng-app="loginform" name='loginform' ng-controller="loginctrl" id="login_form" action="/login" method="post" novalidate>
+    <h1>Login</h1>
     <table>
-        <% for (var field in fields) { %>
-            <tr>
-                <td>
-                    <%= fields[field].name %>
-                </td>
-                <td>
-                    <input type="<%= fields[field].type%>" ng-model="<%=fields[field].name%>" name="<%=fields[field].name%>"
-                           required placeholder="<%=fields[field].placeholder%>"/>
-                </td>
-                <td ng-show="loginform.<%=fields[field].name%>.$dirty && loginform.<%=fields[field].name%>.$invalid">
-                    <p style="color:red"><%=fields[field].name%> is required.</p>
-                </td>
-            </tr>
-        <% } %>
-        <% if (fields.length > 0) { %>
         <tr>
-            <td />
-            <td><input type="submit" value="Sumbit" id="submit"/></td>
+            <td>username</td>
+            <td><input type="text" name="username" ng-model="username" placeholder="username" required/> </td>
+            <td ng-show="loginform.username.$dirty && loginform.username.$invalid" class="error_msg">username is required.</td>
         </tr>
-        <% } %>
+
+        <tr>
+            <td>password</td>
+            <td><input type="password" name="password" ng-model="password" placeholder="password" required/> </td>
+            <td ng-show="loginform.password.$dirty && loginform.password.$invalid" class="error_msg">password is required.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Submit" ng-disabled="loginform.username.$invalid || loginform.password.$invalid"/> </td>
+        </tr>
     </table>
 
 </form>
 <script>
     var app = angular.module('loginform',[]);
     app.controller('loginctrl',function ($scope){
-        <% for (var key in default_value) { %>
-            $scope.<%=default_value[key].name%> = '<%=default_value[key].value%>';
-        <% } %>
+        $scope.username = '';
+        $scope.password = '';
     });
 </script>
 </body>
