@@ -21,6 +21,12 @@
             <td><input type="password" name="password" ng-model="password" placeholder="password" required/> </td>
             <td ng-show="loginform.password.$dirty && loginform.password.$invalid" class="error_msg">password is required.</td>
         </tr>
+        <% if (info) { %>
+            <tr>
+                <td></td>
+                <td><%= info %></td>
+            </tr>
+        <% } %>
         <tr>
             <td></td>
             <td><input type="submit" name="submit" value="Submit" ng-disabled="loginform.username.$invalid || loginform.password.$invalid"/> </td>
