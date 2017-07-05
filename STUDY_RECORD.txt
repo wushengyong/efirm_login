@@ -1,2 +1,3 @@
 1.如何在webstorm中开启debug模式
   在configurations=>Environment Variables中加入DEBUG=efirm-login:server
+2.在使用redis的时候，当设置resave=true，session一直存不进redis
